@@ -54,6 +54,7 @@ def login():
 @app.route("/logout")
 def logout():
 	logout_user()
+	flash('You are successfully logged out!', 'success')
 	return redirect(url_for('home'))
 
 # users can see their account after creating and logging in
@@ -76,9 +77,3 @@ def new_post():
 		flash('Your post has been created!', 'success' )
 		return redirect(url_for('home'))
 	return render_template ('create_post.html', title= 'New Post', form=form)
-
-
-
-
-
-
