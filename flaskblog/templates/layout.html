@@ -17,14 +17,15 @@
 </head>
 <body>
 	<header class="site-header">
-	  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-	  	
+	  <nav class="navbar navbar-expand-md navbar-light bg-dark fixed-top">
+
 	    <div class="container">
 	      <a class="navbar-brand mr-4" href="/">Exercise Blog</a>
-	        
+
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav ">
 	          {% if current_user.is_authenticated %}
+						 <!-- following buttons appear only when the users are already logged in -->
 	          	<a class="nav-item nav-link" href="{{ url_for('new_post') }}">Create Post</a>
 	          	<a class="nav-item nav-link" href="{{ url_for('account') }}">My Account</a>
 	          	<a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -50,7 +51,7 @@
 			{% endif %}
 		{% endwith%}
 		{% block content %}{% endblock %}
-		
+
 	</div>
 
 	 <!-- Optional JavaScript -->
@@ -58,6 +59,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src=<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">></script>
-  
+
 </body>
 </html>
