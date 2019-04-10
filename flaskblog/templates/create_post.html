@@ -1,24 +1,31 @@
+<!-- link the design in 'layout.html' to the create post page-->
 {% extends "layout.html" %}
 {% block content %}
 	<div class="content-section">
 		<form method ="POST" action="">
 
 			{{ form.hidden_tag() }}
+			<!-- Create a box structure for the form-->
 			<fieldset class="form-group">
+				<!-- Show "Create Post" on the top of the form-->
 				<legend class ="border-bottom mb-4">Create Post</legend>
+
+				<!-- Create a field for the title of the post-->
 				<div class= "form-group"> {{ form.title.label(class= "form-control-label")}}
 
 				{{ form.title(class= "form-control form-control-lg")}}
 				</div>
 
+				<!-- Create a field for the content of the post-->
 				<div class= "form-group"> {{ form.content.label(class= "form-control-label")}}
 
 				{{ form.content(class= "form-control form-control-lg")}}
 				</div>
 
 			</fieldset>
-			
+
 			<div class= "form-group">
+				<!-- Create a button for submitting the form-->
 				{{ form.submit(class="btn btn-outline-info")}}
 			</div>
 

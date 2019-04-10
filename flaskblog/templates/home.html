@@ -1,16 +1,27 @@
+<!-- link the design in 'layout.html' to the home page-->
 {% extends "layout.html" %}
 {% block content %}
-
+	<!-- looping through the posts / below is the design
+	only for the posts on the home page-->
 	{% for post in posts %}
 
 	<article class="media content-section">
 	  <div class="media-body">
 	    <div class="article-metadata">
+				<!-- show the username of the author in the post box/
+				link the username button to the account page-->
 	      <a class="mr-2" href="{{ url_for('account') }}">{{ post.author.username }}</a>
-	      <small class="text-muted">{{ post.date_posted.strftime('%m-%d-%Y') }}</small>
+
+				<!-- show the date that the post is posted in the post box-->
+	      <!-- the color of the date will be grey-->
+				<small class="text-muted">{{ post.date_posted.strftime('%m-%d-%Y') }}</small>
 	    </div>
+
+			<!-- show the title of the post in the post box-->
 	    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-	    <p class="article-content">{{ post.content }}</p>
+
+			<!-- show the content of the post in the post box-->
+		  <p class="article-content">{{ post.content }}</p>
 	  </div>
 	</article>
 	{% endfor %}

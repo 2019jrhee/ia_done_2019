@@ -1,12 +1,15 @@
+<!-- link the design in 'layout.html' to the account page-->
 {% extends "layout.html" %}
 {% block content %}
 	<div class="content-section">
+			<!-- show "My Account Info" on the top of the form -->
   		<legend class ="border-bottom mb-4">My Account Info</legend>
-    	<h2 class="account-heading">{{ current_user.username }}
+<!-- display the username of the user who is already logged in -->
+			<h2 class="account-heading">{{ current_user.username }}
     	</h2>
+			<!-- display the email of the user who is already logged in -->
       		<p class="text-secondary">{{ current_user.email }}
       		</p>
-    		
-  <!-- FORM HERE -->
+
 	</div>
 {% endblock content %}

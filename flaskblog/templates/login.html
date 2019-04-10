@@ -1,24 +1,31 @@
+<!-- link the design in 'layout.html' to the login page-->
 {% extends "layout.html" %}
 {% block content %}
 	<div class="content-section">
 		<form method ="POST" action="">
 
 			{{ form.hidden_tag() }}
+			<!-- Create a box structure for the form-->
 			<fieldset class="form-group">
+				<!-- Show "Log In!" on the top of the form-->
 				<legend class ="border-bottom mb-4">Log In!</legend>
+
+				<!-- Create a field for the username -->
 				<div class= "form-group"> {{ form.username.label(class= "form-control-label")}}
 
-				{{ form.username(class= "form-control form-control-lg")}}
+				{{ form.username(class= "form-control form-control-sm")}}
 				</div>
 
+				<!-- Create a field for the password -->
 				<div class= "form-group"> {{ form.password.label(class= "form-control-label")}}
 
-				{{ form.password(class= "form-control form-control-lg")}}
+				{{ form.password(class= "form-control form-control-sm")}}
 				</div>
 
 			</fieldset>
-			
+
 			<div class= "form-group">
+				<!-- Create a button for submitting the username and password for login -->
 				{{ form.submit(class="btn btn-outline-info")}}
 			</div>
 

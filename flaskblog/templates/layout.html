@@ -5,35 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+		<!-- link this layout.html file to 'main.css' for static design -->
     <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='main.css') }}">
 
-	{% if title %}
-		<title>Exercise Blog - {{ title }}</title>
-	{% else %}
-		<title>Exercise Blog</title>
-	{% endif %}
 </head>
 <body>
 	<header class="site-header">
+		<!-- color, type of the navigation bar -->
 	  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
 	    <div class="container">
+				<!-- show the button 'Exercise Blog' on the left side of the navigation bar -->
 	      <a class="navbar-brand mr-4" href="/">Exercise Blog</a>
 
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav ">
+							 <!-- following buttons appear only when the users are already logged in -->
 	          {% if current_user.is_authenticated %}
-						 <!-- following buttons appear only when the users are already logged in -->
-	          	<a class="nav-item nav-link" href="{{ url_for('new_post') }}">Create Post</a>
-	          	<a class="nav-item nav-link" href="{{ url_for('account') }}">My Account</a>
-	          	<a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
 
+							<!-- button for the create post page / linked to the route 'new_post' in 'routes.py'-->
+	          	<a class="nav-item nav-link" href="{{ url_for('new_post') }}">Create Post</a>
+
+							<!-- button for the account page / linked to the route 'account' in 'routes.py'-->
+	          	<a class="nav-item nav-link" href="{{ url_for('account') }}">My Account</a>
+
+							<!-- button for logging out / linked to the route 'logout' in 'routes.py'-->
+							<a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+
+						<!-- following buttons appear only the user is not logged in -->
 	          {% else %}
 
+							<!-- button for the login page / linked to the route 'login' in 'routes.py'-->
 		          <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-		          <a class="nav-item nav-link" href="{{ url_for('register') }}">Join</a>
+
+							<!-- button for the join page / linked to the route 'register' in 'routes.py'-->
+							<a class="nav-item nav-link" href="{{ url_for('register') }}">Join</a>
 		      {% endif %}
 	        </div>
 	    </div>
@@ -41,8 +50,12 @@
 	</header>
 
 	<div class ="container">
+		<!-- for all the flash messages -->
 		{% with messages = get_flashed_messages(with_categories=true)%}
 			{% if messages %}
+
+			<!-- show specific flash messages for all catagories:
+			 join, create post, logout/login -->
 				{% for category, message in messages %}
 					<div class="alert alert-{{ category }}">
 						{{message}}
