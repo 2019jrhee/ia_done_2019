@@ -39,4 +39,4 @@ class Post(db.Model):
 
 	# show the post title and date in the database
 	def __repr__(self):
-        return f"Post('{self.title}', '{self.date_posted}')"
+		return f"Post('{self.title}', '{self.date_posted}')"
