@@ -1,5 +1,5 @@
 body {
-  background: #eaf7ff;
+  background: #65AEDF;
   color: #333333;
   margin-top: 5rem;
 }
@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .content-section {
