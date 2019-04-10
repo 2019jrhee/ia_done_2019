@@ -38,5 +38,5 @@ class Post(db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 	# show the post title and date in the database
-    def __repr__(self):
+	def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
