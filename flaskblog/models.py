@@ -31,12 +31,12 @@ class User(db.Model, UserMixin):
 
 class Post(db.Model):
 	# following unique components will be saved in the database
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), nullable=False)
+	id = db.Column(db.Integer, primary_key=True)
+	title = db.Column(db.String(80), nullable=False)
 	content = db.Column(db.Text, nullable=False)
-    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-	 # show the post title and date in the database
+	# show the post title and date in the database
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
